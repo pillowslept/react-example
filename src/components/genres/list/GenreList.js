@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './GenreList.css';
 
 export class GenreList extends Component {
@@ -16,7 +17,7 @@ export class GenreList extends Component {
             <b>Movies:</b> <span>{ genre.movies }</span>
           </div>
           <hr></hr>
-          <button>View detail</button>
+          <Link to={ `/genres/${genre.id}` }>View detail</Link>
         </div>
       </div>
     )

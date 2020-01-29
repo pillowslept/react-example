@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
 import Movies from 'components/movies/Movies';
 import Genres from 'components/genres/Genres';
+import Genre from 'components/genres/detail/Genre';
 import Home from 'components/home/Home';
 import './Main.css';
 
@@ -10,6 +11,7 @@ export class Main extends Component {
     return (
       <div className="main">
         <Switch>
+          <Route path="/genres/:genreId" component={Genre}/>
           <Route path="/genres">
             <Genres/>
           </Route>
