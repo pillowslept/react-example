@@ -8,9 +8,9 @@ export class NavBar extends Component {
       <div className="navBar">
         <div className="title">Movies/Genres</div>
         <div>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
-          <Link to="/genres">Genres</Link>
+          <Link className="btn white-btn" to="/">Home</Link>
+          <Link className="btn white-btn" to="/movies">Movies</Link>
+          <Link className="btn white-btn" to="/genres">Genres</Link>
         </div>
       </div>
     );

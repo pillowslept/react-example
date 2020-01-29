@@ -17,7 +17,7 @@ export class GenreList extends Component {
             <b>Movies:</b> <span>{ genre.movies }</span>
           </div>
           <hr></hr>
-          <Link to={ `/genres/${genre.id}` }>View detail</Link>
+          <Link className="btn default-btn" to={ `/genres/${genre.id}` }>View detail</Link>
         </div>
       </div>
     )

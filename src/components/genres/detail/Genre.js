@@ -34,7 +34,7 @@ export class Genre extends Component {
           </div>
         </div>
         <hr></hr>
-        <Link to="/genres">Genres</Link>
+        <Link className="btn default-btn" to="/genres">Genres</Link>
       </div>
     );
   }

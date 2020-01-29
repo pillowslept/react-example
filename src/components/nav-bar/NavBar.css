@@ -8,22 +8,6 @@
   align-items: center;
 }
 
-a {
-  background-color: white;
-  padding: 5px 1rem 5px 1rem;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-block;
-  margin-right: 1rem;
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-}
-
-a:hover {
-  background-color: #e7e7e7;
-  color: #572364;
-}
-
 .title {
   margin-left: 1rem;
   color: white;
