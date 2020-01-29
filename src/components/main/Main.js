@@ -1,0 +1,28 @@
+import React, { Component } from 'react';
+import { Switch, Route } from "react-router-dom";
+import Movies from 'components/movies/Movies';
+import Genres from 'components/genres/Genres';
+import Home from 'components/home/Home';
+import './Main.css';
+
+export class Main extends Component {
+  render() {
+    return (
+      <div className="main">
+        <Switch>
+          <Route path="/genres">
+            <Genres/>
+          </Route>
+          <Route path="/movies">
+            <Movies/>
+          </Route>
+          <Route path="/">
+            <Home/>
+          </Route>
+        </Switch>
+      </div>
+    );
+  }
+}
+
+export default Main;

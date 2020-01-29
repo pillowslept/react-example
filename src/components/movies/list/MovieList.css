@@ -1,0 +1,48 @@
+.cardMovies .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 1rem;
+  flex: 0 1 calc(20% - 1rem);
+  margin-bottom: 1rem;
+}
+
+.cardMovies .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.cardMovies .card .description {
+  text-align: left;
+  font-size: 14px;
+}
+
+.cardMovies .card .detail-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardMovies .card .genres {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardMovies .card .genre {
+  color: #fff;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #572364;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+@media screen and (max-width: 980px) {
+  .cardMovies .card {
+    flex: 0 1 calc(30% - 1rem);
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .cardMovies .card  {
+    flex: 0 1 calc(45% - 1rem);
+  }
+}
