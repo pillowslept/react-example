@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import GenreList from 'components/genres/list/GenreList';
-import './Genres.css';
+import GenreCard from 'components/genres/card/GenreCard';
 import { GENRES } from 'mocks/MovieData';
 
 export class Genres extends Component {
@@ -10,10 +9,18 @@ export class Genres extends Component {
       genres: GENRES,
     }
   }
-  render() {
+  createCard = genre => {
     return (
-      <div className="cardGenres">
-        <GenreList entries={this.state.genres} />
+      <GenreCard key={genre.id} entry={genre}/>
+    )
+  }
+  render() {
+    const genres = this.state.genres || []
+    const cards = genres.map(this.createCard)
+
+    return (
+      <div className="cards">
+        {cards}
       </div>
     );
   }

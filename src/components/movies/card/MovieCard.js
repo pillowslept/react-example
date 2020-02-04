@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import './MovieList.css';
+import './MovieCard.scss';
 
-export class MovieList extends Component {
+export class MovieCard extends Component {
   createGenreTag = tag => {
     return (
       <span key={tag.id} className="genre">{ tag.name }</span>
     )
   }
-  createMovieCard = movie => {
+  render() {
+    const movie = this.props.entry || {}
     const genres = movie.genres || []
     const listGenres = genres.map(this.createGenreTag)
 
     return (
-      <div key={movie.id} className="card">
+      <div key={movie.id} className="card movie-card">
         <div className="description">
           <div className="detail-info">
             <b>Title:</b> <span>{ movie.title }</span>
@@ -29,16 +30,8 @@ export class MovieList extends Component {
           {listGenres}
         </div>
       </div>
-    )
-  }
-  render() {
-    const movies = this.props.entries || []
-    const listMovies = movies.map(this.createMovieCard)
-
-    return (
-      listMovies
     );
   }
 }
 
-export default MovieList;
+export default MovieCard;

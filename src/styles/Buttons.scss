@@ -1,3 +1,5 @@
+@import 'Colors';
+
 .btn {
     padding: 5px 1rem 5px 1rem;
     border-radius: 5px;
@@ -9,20 +11,20 @@
 }
 
 .default-btn {
-    border: 2px solid #572364;
-    color: #572364;
+    border: 2px solid $main-color;
+    color: $main-color;
 }
 
 .default-btn:hover {
-    background-color: #461c50;
+    background-color: $alternate-color;
     color: white;
 }
 
 .white-btn {
     background-color: white;
-  }
+}
   
 .white-btn:hover {
-    background-color: #e7e7e7;
-    color: #572364;
+    background-color: $light-gray;
+    color: $main-color;
 }

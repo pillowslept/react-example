@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import './GenreList.css';
+import './GenreCard.scss';
 
-export class GenreList extends Component {
-  createGenreCard = genre => {
+export class GenreCard extends Component {
+  render() {
+    const genre = this.props.entry || {}
+
     return (
-      <div key={genre.id} className="card">
+      <div className="card genre-card">
         <div className="description">
           <div className="detail-info">
             <b>ID:</b> <span>{ genre.id }</span>
@@ -20,16 +22,8 @@ export class GenreList extends Component {
           <Link className="btn default-btn" to={ `/genres/${genre.id}` }>View detail</Link>
         </div>
       </div>
-    )
-  }
-  render() {
-    const genres = this.props.entries || []
-    const listGenres = genres.map(this.createGenreCard)
-
-    return (
-      listGenres
     );
   }
 }
 
-export default GenreList;
+export default GenreCard;

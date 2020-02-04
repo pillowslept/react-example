@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import MovieList from 'components/movies/list/MovieList';
-import './Movies.css';
+import MovieCard from 'components/movies/card/MovieCard';
 import { MOVIES } from 'mocks/MovieData';
 
 export class Movies extends Component {
@@ -10,10 +9,18 @@ export class Movies extends Component {
       movies: MOVIES,
     }
   }
-  render() {
+  createCard = movie => {
     return (
-      <div className="cardMovies">
-        <MovieList entries={this.state.movies} />
+      <MovieCard key={movie.id} entry={movie}/>
+    )
+  }
+  render() {
+    const movies = this.state.movies || []
+    const cards = movies.map(this.createCard)
+
+    return (
+      <div className="cards">
+        {cards}
       </div>
     );
   }

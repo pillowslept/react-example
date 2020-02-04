@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { GENRES } from 'mocks/MovieData';
 import { Link } from "react-router-dom";
-import './Genre.css';
+import './Genre.scss';
 
 export class Genre extends Component {
   constructor() {

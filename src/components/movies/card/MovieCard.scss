@@ -1,0 +1,56 @@
+@import 'src/styles/Colors';
+@import 'src/styles/Mixins';
+
+.cards {
+  grid-template-columns: repeat(auto-fill, 24%);
+}
+
+.movie-card {
+  .description {
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .detail-info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    float: right;
+    margin-right: 0;
+  }
+
+  .genres {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .genre {
+    color: #fff;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: $main-color;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+}
+
+@include large-screen {    
+  .cards {
+    grid-template-columns: repeat(auto-fill, 32%);
+  }
+}
+
+@include medium-screen {    
+  .cards {
+    grid-template-columns: repeat(auto-fill, 48%);
+  }
+}
+
+@include small-screen {    
+  .cards {
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+}
