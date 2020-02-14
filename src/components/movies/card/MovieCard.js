@@ -70,7 +70,7 @@ export class MovieCard extends Component {
             <Button variant="outlined" color="default" size="small"
               endIcon={<Icon>send</Icon>}
               component={Link}
-              to={`/movies/${movie.id}`}>Details</Button>
+              to={`/movies/${movie.id}`}>View detail</Button>
           </CardActions>
         </Card>
       </Grid>

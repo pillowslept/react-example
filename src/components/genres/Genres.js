@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GenreCard from 'components/genres/card/GenreCard';
 import { GENRES } from 'mocks/MovieData';
+import Grid from '@material-ui/core/Grid';
 
 export class Genres extends Component {
   constructor() {
@@ -19,9 +20,11 @@ export class Genres extends Component {
     const cards = genres.map(this.createCard)
 
     return (
-      <div className="cards">
+      <Grid
+        container
+        spacing={2}>
         {cards}
-      </div>
+      </Grid>
     );
   }
 }
