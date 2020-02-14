@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieCard from 'components/movies/card/MovieCard';
 import { MOVIES } from 'mocks/MovieData';
+import Grid from '@material-ui/core/Grid';
 
 export class Movies extends Component {
   constructor() {
@@ -19,9 +20,11 @@ export class Movies extends Component {
     const cards = movies.map(this.createCard)
 
     return (
-      <div className="cards">
+      <Grid
+        container
+        spacing={2}>
         {cards}
-      </div>
+      </Grid>
     );
   }
 }
