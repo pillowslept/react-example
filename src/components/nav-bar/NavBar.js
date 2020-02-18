@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
+import Sidenav from 'components/sidenav/Sidenav';
 import { MAIN_COLOR } from 'constants/Colors';
 
 const styles = theme => ({
@@ -26,13 +27,25 @@ const styles = theme => ({
 });
 
 export class NavBar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isOpen: false,
+    }
+    this.openCloseSidenav = this.openCloseSidenav.bind(this);
+  }
+  openCloseSidenav() {
+    this.setState((state) => ({
+      isOpen: !state.isOpen,
+    }));
+  }
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
         <AppBar position="static" className={classes.appBar}>
           <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton onClick={this.openCloseSidenav} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
@@ -43,6 +56,7 @@ export class NavBar extends Component {
             <Button color="inherit" component={Link} to="/genres">Genres</Button>
           </Toolbar>
         </AppBar>
+        <Sidenav isOpen={this.state.isOpen} openCloseSidenav={this.openCloseSidenav} />
       </div>
     );
   }
