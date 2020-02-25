@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
+import { HOST_API_URL } from 'constants/Environment';
 import MovieCard from 'components/movies/card/MovieCard';
-import { MOVIES } from 'mocks/MovieData';
 import Grid from '@material-ui/core/Grid';
 
 export class Movies extends Component {
   constructor() {
     super()
     this.state = {
-      movies: MOVIES,
+      movies: [],
     }
+  }
+  componentDidMount() {
+    fetch(`${HOST_API_URL}/movie`)
+      .then(res => res.json())
+      .then(({ data }) => {
+        this.setState({ movies: data })
+      })
+      .catch(console.log)
   }
   createCard = movie => {
     return (

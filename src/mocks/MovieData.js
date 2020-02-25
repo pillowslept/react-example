@@ -6,8 +6,10 @@ const SUPERHEROES = { id: 5, name: 'Superheroes', movies: 10 };
 const SCIENCE_FICTION = { id: 6, name: 'Science Fiction', movies: 2 };
 const ADVENTURE = { id: 7, name: 'Adventure', movies: 4 };
 
-const MARVEL_STUDIOS = { id: 1, name: 'Marvel Studios' };
-const CENTURY_FOX = { id: 2, name: '20th Century Fox' };
+const MARVEL_STUDIOS = { id: 1, name: 'Marvel Studios', created_at: '01/11/2019' };
+const CENTURY_FOX = { id: 2, name: '20th Century Fox', created_at: '01/11/2012' };
+
+export const COMPANIES = [MARVEL_STUDIOS, CENTURY_FOX];
 
 export const MOVIES = 
 [

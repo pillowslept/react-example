@@ -32,7 +32,7 @@ const styles = theme => ({
   },
   actionButtons: {
     float: 'right',
-  }
+  },
 });
 
 export class MovieCard extends Component {
@@ -52,13 +52,13 @@ export class MovieCard extends Component {
         <Card className={classes.grid} variant="outlined">
           <CardContent>
             <Typography variant="h5" component="h2">
-              {movie.title}
+              {movie.name}
             </Typography>
             <Typography className={classes.subtitle} color="textSecondary">
-              {movie.company.name}
+              {movie.state}
             </Typography>
             <Typography className={classes.subtitle} color="textSecondary">
-              {movie.date}
+              {movie.createdAt}
             </Typography>
             <Divider />
             <div className={classes.chip}>

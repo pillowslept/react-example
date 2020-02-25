@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import GenreCard from 'components/genres/card/GenreCard';
 import CreateGenre from 'components/genres/create/CreateGenre';
-import { GENRES } from 'mocks/MovieData';
+import { HOST_API_URL } from 'constants/Environment';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
@@ -24,7 +24,7 @@ export class Genres extends Component {
     this.openCloseModal = this.openCloseModal.bind(this);
   }
   componentDidMount() {
-    fetch('http://localhost:3035/api/nodejs-example/genre')
+    fetch(`${HOST_API_URL}/genre`)
       .then(res => res.json())
       .then(({ data }) => {
         this.setState({ genres: data })
