@@ -8,72 +8,50 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import Chip from '@material-ui/core/Chip';
 import Icon from '@material-ui/core/Icon';
 import Grid from '@material-ui/core/Grid';
-import { MAIN_COLOR, WHITE_COLOR } from 'constants/Colors';
 
-const styles = theme => ({
+const styles = () => ({
   grid: {
     height: '100%',
   },
   subtitle: {
     fontSize: 14,
   },
-  chip: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(0.5),
-    '& > *': {
-      marginRight: theme.spacing(0.5),
-      marginBottom: theme.spacing(0.5),
-      background: MAIN_COLOR,
-      color: WHITE_COLOR,
-    },
-  },
   actionButtons: {
     float: 'right',
   },
 });
 
-export class MovieCard extends Component {
-  createGenreChip = tag => {
-    return (
-      <Chip key={tag.id} label={ tag.name } />
-    )
-  }
+export class CompanyCard extends Component {
   render() {
     const { classes } = this.props;
-    const movie = this.props.entry || {}
-    const genres = movie.genres || []
-    const listGenres = genres.map(this.createGenreChip)
+    const company = this.props.entry || {}
 
     return (
       <Grid item xs={6} md={4} lg={3}>
         <Card className={classes.grid} variant="outlined">
           <CardContent>
             <Typography variant="h5" component="h2">
-              {movie.name}
-            </Typography>
-            <Typography className={classes.subtitle} color="textSecondary">
-              {movie.company.name}
-            </Typography>
-            <Typography className={classes.subtitle} color="textSecondary">
-              {movie.state}
-            </Typography>
-            <Typography className={classes.subtitle} color="textSecondary">
-              {movie.createdAt}
+              {company.name}
             </Typography>
             <Divider />
-            <div className={classes.chip}>
-              {listGenres}
-            </div>
+            <Typography className={classes.subtitle} color="textSecondary">
+              {company.id}
+            </Typography>
+            <Typography className={classes.subtitle} color="textSecondary">
+              {company.since}
+            </Typography>
+            <Typography className={classes.subtitle} color="textSecondary">
+              {company.createdAt}
+            </Typography>
             <Divider />
           </CardContent>
           <CardActions className={classes.actionButtons}>
             <Button variant="outlined" color="default" size="small"
               endIcon={<Icon>send</Icon>}
               component={Link}
-              to={`/movies/${movie.id}`}>View detail</Button>
+              to={`/companies/${company.id}`}>View detail</Button>
           </CardActions>
         </Card>
       </Grid>
@@ -81,8 +59,8 @@ export class MovieCard extends Component {
   }
 }
 
-MovieCard.propTypes = {
+CompanyCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MovieCard);
+export default withStyles(styles)(CompanyCard);

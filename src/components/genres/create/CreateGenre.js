@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HOST_API_URL } from 'constants/Environment';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -19,7 +20,7 @@ export class CreateGenre extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   process() {
-    fetch('http://localhost:3035/api/nodejs-example/genre', {
+    fetch(`${HOST_API_URL}/genre`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
