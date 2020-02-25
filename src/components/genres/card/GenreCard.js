@@ -39,7 +39,7 @@ export class GenreCard extends Component {
               <b>ID:</b> {genre.id}
             </Typography>
             <Typography className={classes.subtitle} color="textSecondary">
-              <b>Movies:</b> {genre.movies}
+              <b>Created at:</b> {genre.createdAt}
             </Typography>
             <Divider />
           </CardContent>
