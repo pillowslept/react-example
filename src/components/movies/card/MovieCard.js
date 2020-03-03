@@ -58,7 +58,7 @@ export class MovieCard extends Component {
               {movie.company.name}
             </Typography>
             <Typography className={classes.subtitle} color="textSecondary">
-              {movie.state}
+              {movie.state === 'I' ? 'Unseen' : 'Seen'}
             </Typography>
             <Typography className={classes.subtitle} color="textSecondary">
               {movie.createdAt}
