@@ -9,6 +9,7 @@ export class Movies extends Component {
     this.state = {
       movies: [],
     }
+    this.openCloseModal = this.openCloseModal.bind(this);
   }
   componentDidMount() {
     fetch(`${HOST_API_URL}/movie`)
@@ -17,6 +18,11 @@ export class Movies extends Component {
         this.setState({ movies: data })
       })
       .catch(console.log)
+  }
+  openCloseModal() {
+    this.setState((state) => ({
+      isOpen: !state.isOpen,
+    }));
   }
   createCard = movie => {
     return (

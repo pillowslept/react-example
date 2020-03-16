@@ -57,7 +57,9 @@ export class Genres extends Component {
           </Grid>
           {cards}
         </Grid>
-        <CreateGenre isOpen={this.state.isOpen} openCloseModal={this.openCloseModal} />
+        {this.state.isOpen &&
+          <CreateGenre isOpen={this.state.isOpen} openCloseModal={this.openCloseModal} />
+        }
       </div>
     );
   }
