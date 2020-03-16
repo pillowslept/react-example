@@ -59,6 +59,7 @@ export class NavBar extends Component {
             </Hidden>
             <div>
               <Button color="inherit" component={Link} to="/">Home</Button>
+              <Button color="inherit" component={Link} to="/actors">Actors</Button>
               <Button color="inherit" component={Link} to="/companies">Companies</Button>
               <Button color="inherit" component={Link} to="/movies">Movies</Button>
               <Button color="inherit" component={Link} to="/genres">Genres</Button>

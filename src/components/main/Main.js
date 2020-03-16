@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
+import Actors from 'components/actors/Actors';
 import Companies from 'components/companies/Companies';
 import Movies from 'components/movies/Movies';
 import Genres from 'components/genres/Genres';
@@ -13,6 +14,9 @@ export class Main extends Component {
       <div className="main">
         <Switch>
           <Route path="/genres/:genreId" component={Genre}/>
+          <Route path="/actors">
+            <Actors />
+          </Route>
           <Route path="/companies">
             <Companies />
           </Route>
