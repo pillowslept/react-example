@@ -47,7 +47,7 @@ export class Genres extends Component {
     const cards = genres.map(this.createCard)
 
     return (
-      <div>
+      <React.Fragment>
         <Grid
           container
           spacing={2}>
@@ -60,7 +60,7 @@ export class Genres extends Component {
         {this.state.isOpen &&
           <CreateGenre isOpen={this.state.isOpen} openCloseModal={this.openCloseModal} />
         }
-      </div>
+      </React.Fragment>
     );
   }
 }

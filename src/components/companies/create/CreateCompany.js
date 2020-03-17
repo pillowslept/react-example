@@ -7,6 +7,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Divider from '@material-ui/core/Divider';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { withSnackbar } from 'notistack';
 
 export class CreateCompany extends Component {
   constructor() {
@@ -29,9 +30,12 @@ export class CreateCompany extends Component {
       body: JSON.stringify(this.state.company),
     })
     .then(() => {
+      this.props.enqueueSnackbar('Successfully', { variant: 'success' })
       this.props.openCloseModal();
     })
-    .catch(console.log)
+    .catch(() => {
+      this.props.enqueueSnackbar('There was an error executing the action', { variant: 'error' })
+    })
   }
   handleChange = (event, field) =>{ 
     this.setState({ company: { ...this.state.company, [field]: event.target.value } });
@@ -84,4 +88,4 @@ export class CreateCompany extends Component {
   }
 }
 
-export default CreateCompany;
+export default withSnackbar(CreateCompany);
