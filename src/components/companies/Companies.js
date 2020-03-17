@@ -14,6 +14,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+import CreateCompany from 'components/companies/create/CreateCompany';
 
 const styles = () => ({
   actions: {
@@ -27,6 +28,7 @@ export class Companies extends Component {
     this.state = {
       companies: [],
     }
+    this.openCloseModal = this.openCloseModal.bind(this);
   }
   componentDidMount() {
     fetch(`${HOST_API_URL}/company`)
@@ -36,58 +38,68 @@ export class Companies extends Component {
       })
       .catch(console.log)
   }
+  openCloseModal() {
+    this.setState((state) => ({
+      isOpen: !state.isOpen,
+    }));
+  }
   render() {
     const { classes } = this.props;
     const companies = this.state.companies || []
 
     return (
-      <Grid
-        container
-        spacing={2}>
-        <Grid item xs={12} className={classes.actions}>
-          <Button variant="contained" size="small"
-            endIcon={<Icon>plus_one</Icon>}>Create</Button>
-        </Grid>
-        <Grid item xs={12}>
-          <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>ID</TableCell>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Since</TableCell>
-                  <TableCell>Created at</TableCell>
-                  <TableCell>Actions</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {companies.map(row => (
-                  <TableRow key={row.id}>
-                    <TableCell component="th" scope="row">
-                      {row.id}
-                    </TableCell>
-                    <TableCell>{row.name}</TableCell>
-                    <TableCell>{row.since}</TableCell>
-                    <TableCell>{row.createdAt}</TableCell>
-                    <TableCell>
-                      <Tooltip title="Edit" aria-label="add">
-                        <IconButton aria-label="delete" size="small">
-                          <Icon>edit</Icon>
-                        </IconButton>
-                      </Tooltip>
-                      <Tooltip title="Delete" aria-label="add">
-                        <IconButton aria-label="delete" size="small">
-                          <Icon>delete</Icon>
-                        </IconButton>
-                      </Tooltip>
-                    </TableCell>
+      <React.Fragment>
+        <Grid
+          container
+          spacing={2}>
+          <Grid item xs={12} className={classes.actions}>
+            <Button variant="contained" size="small" onClick={this.openCloseModal}
+              endIcon={<Icon>plus_one</Icon>}>Create</Button>
+          </Grid>
+          <Grid item xs={12}>
+            <TableContainer component={Paper}>
+              <Table className={classes.table} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>ID</TableCell>
+                    <TableCell>Name</TableCell>
+                    <TableCell>Since</TableCell>
+                    <TableCell>Created at</TableCell>
+                    <TableCell>Actions</TableCell>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+                </TableHead>
+                <TableBody>
+                  {companies.map(row => (
+                    <TableRow key={row.id}>
+                      <TableCell component="th" scope="row">
+                        {row.id}
+                      </TableCell>
+                      <TableCell>{row.name}</TableCell>
+                      <TableCell>{row.since}</TableCell>
+                      <TableCell>{row.createdAt}</TableCell>
+                      <TableCell>
+                        <Tooltip title="Edit" aria-label="add">
+                          <IconButton aria-label="delete" size="small">
+                            <Icon>edit</Icon>
+                          </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Delete" aria-label="add">
+                          <IconButton aria-label="delete" size="small">
+                            <Icon>delete</Icon>
+                          </IconButton>
+                        </Tooltip>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Grid>
         </Grid>
-      </Grid>
+        {this.state.isOpen &&
+          <CreateCompany isOpen={this.state.isOpen} openCloseModal={this.openCloseModal} />
+        }
+      </React.Fragment>
     );
   }
 }
