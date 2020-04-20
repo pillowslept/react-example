@@ -5,33 +5,33 @@ import Grid from '@material-ui/core/Grid';
 
 export class Movies extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       movies: [],
-    }
+    };
     this.openCloseModal = this.openCloseModal.bind(this);
   }
   componentDidMount() {
     fetch(`${HOST_API_URL}/movie`)
       .then(res => res.json())
       .then(({ data }) => {
-        this.setState({ movies: data })
+        this.setState({ movies: data });
       })
-      .catch(console.log)
+      .catch(console.log);
   }
   openCloseModal() {
     this.setState((state) => ({
       isOpen: !state.isOpen,
     }));
   }
-  createCard = movie => {
+  createCard(movie) {
     return (
       <MovieCard key={movie.id} entry={movie}/>
-    )
+    );
   }
   render() {
-    const movies = this.state.movies || []
-    const cards = movies.map(this.createCard)
+    const movies = this.state.movies || [];
+    const cards = movies.map(this.createCard);
 
     return (
       <Grid

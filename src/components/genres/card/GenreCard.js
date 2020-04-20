@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,7 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import Grid from '@material-ui/core/Grid';
 
-const styles = theme => ({
+const styles = () => ({
   grid: {
     height: '100%',
   },
@@ -26,7 +26,7 @@ const styles = theme => ({
 export class GenreCard extends Component {
   render() {
     const { classes } = this.props;
-    const genre = this.props.entry || {}
+    const genre = this.props.entry || {};
 
     return (
       <Grid item xs={6} md={4} lg={3}>
@@ -57,6 +57,7 @@ export class GenreCard extends Component {
 
 GenreCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  entry: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(GenreCard);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { HOST_API_URL } from 'constants/Environment';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -10,14 +11,14 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 export class CreateActor extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       actor: {
         name: '',
         birthplace: '',
         picture: '',
       },
-    }
+    };
     this.process = this.process.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -29,12 +30,12 @@ export class CreateActor extends Component {
       },
       body: JSON.stringify(this.state.actor),
     })
-    .then(() => {
-      this.props.openCloseModal();
-    })
-    .catch(console.log)
+      .then(() => {
+        this.props.openCloseModal();
+      })
+      .catch(console.log);
   }
-  handleChange = (event, field) =>{ 
+  handleChange(event, field) {
     this.setState({ actor: { ...this.state.actor, [field]: event.target.value } });
   }
   render() {
@@ -94,5 +95,11 @@ export class CreateActor extends Component {
     );
   }
 }
+
+CreateActor.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  openCloseModal: PropTypes.func.isRequired,
+  enqueueSnackbar: PropTypes.func.isRequired,
+};
 
 export default CreateActor;

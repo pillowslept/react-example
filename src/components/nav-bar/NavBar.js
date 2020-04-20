@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -32,10 +32,10 @@ const styles = theme => ({
 
 export class NavBar extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isOpen: false,
-    }
+    };
     this.openCloseSidenav = this.openCloseSidenav.bind(this);
   }
   openCloseSidenav() {
@@ -49,7 +49,8 @@ export class NavBar extends Component {
       <div className={classes.root}>
         <AppBar position="static" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
-            <IconButton onClick={this.openCloseSidenav} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton onClick={this.openCloseSidenav}
+              edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
             <Hidden xsDown>

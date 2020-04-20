@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { HOST_API_URL } from 'constants/Environment';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -10,12 +11,12 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 export class CreateGenre extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       genre: {
         name: '',
       },
-    }
+    };
     this.process = this.process.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -27,12 +28,12 @@ export class CreateGenre extends Component {
       },
       body: JSON.stringify(this.state.genre),
     })
-    .then(() => {
-      this.props.openCloseModal();
-    })
-    .catch(console.log)
+      .then(() => {
+        this.props.openCloseModal();
+      })
+      .catch(console.log);
   }
-  handleChange = (event) =>{ 
+  handleChange(event) {
     this.setState({ genre: { name: event.target.value } });
   }
   render() {
@@ -72,5 +73,10 @@ export class CreateGenre extends Component {
     );
   }
 }
+
+CreateGenre.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  openCloseModal: PropTypes.func.isRequired,
+};
 
 export default CreateGenre;

@@ -37,16 +37,16 @@ const styles = theme => ({
 
 export class MovieCard extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       isOpen: false,
-    }
+    };
     this.openCloseModal = this.openCloseModal.bind(this);
   }
-  createGenreChip = tag => {
+  createGenreChip(tag) {
     return (
       <Chip key={tag.id} label={ tag.name } />
-    )
+    );
   }
   openCloseModal() {
     this.setState((state) => ({
@@ -55,9 +55,9 @@ export class MovieCard extends Component {
   }
   render() {
     const { classes } = this.props;
-    const movie = this.props.entry || {}
-    const genres = movie.genres || []
-    const listGenres = genres.map(this.createGenreChip)
+    const movie = this.props.entry || {};
+    const genres = movie.genres || [];
+    const listGenres = genres.map(this.createGenreChip);
 
     return (
       <Grid item xs={6} md={4} lg={3}>
@@ -87,7 +87,7 @@ export class MovieCard extends Component {
               onClick={this.openCloseModal}>View detail</Button>
           </CardActions>
         </Card>
-        {this.state.isOpen && 
+        {this.state.isOpen &&
           <MovieDetail isOpen={this.state.isOpen} openCloseModal={this.openCloseModal} movie={movie} />
         }
       </Grid>
@@ -97,6 +97,7 @@ export class MovieCard extends Component {
 
 MovieCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  entry: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(MovieCard);

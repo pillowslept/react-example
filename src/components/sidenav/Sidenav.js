@@ -43,6 +43,8 @@ export class Sidenav extends Component {
 
 Sidenav.propTypes = {
   classes: PropTypes.object.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  openCloseSidenav: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Sidenav);

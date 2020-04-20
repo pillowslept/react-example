@@ -13,7 +13,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
 
-const styles = theme => ({
+const styles = () => ({
   title: {
     display: 'flex',
     justifyContent: 'space-between'
@@ -31,30 +31,30 @@ const styles = theme => ({
 
 export class MovieDetail extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       actors: [],
-    }
+    };
   }
   componentDidMount() {
     fetch(`${HOST_API_URL}/actor/movie/${this.props.movie.id}`)
       .then(res => res.json())
       .then(({ data }) => {
-        this.setState({ actors: data })
+        this.setState({ actors: data });
       })
-      .catch(console.log)
+      .catch(console.log);
   }
-  createActorPaper = (actor, classes) => {
+  createActorPaper(actor, classes) {
     return (
       <Paper key={actor.id} variant="outlined" className={classes.actor}>
         <Avatar alt={actor.name} src={actor.picture} />
         <Typography color="textSecondary">{actor.name}</Typography>
       </Paper>
-    )
+    );
   }
   render() {
     const { classes, isOpen, openCloseModal, movie } = this.props;
-    const actors = (this.state.actors || []).map(actor => this.createActorPaper(actor, classes))
+    const actors = (this.state.actors || []).map(actor => this.createActorPaper(actor, classes));
     const width = 'sm';
 
     return (
@@ -85,7 +85,7 @@ export class MovieDetail extends Component {
           <Typography color="textSecondary">
             <b>Box office:</b> $ 1350 billion
           </Typography>
-          {!!actors.length && 
+          {!!actors.length &&
             <React.Fragment>
               <Typography color="textSecondary">
                 <b>Actors:</b>
@@ -108,6 +108,9 @@ export class MovieDetail extends Component {
 
 MovieDetail.propTypes = {
   classes: PropTypes.object.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  openCloseModal: PropTypes.func.isRequired,
+  movie: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(MovieDetail);

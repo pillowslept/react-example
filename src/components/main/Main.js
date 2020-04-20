@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route } from 'react-router-dom';
 import Actors from 'components/actors/Actors';
 import Companies from 'components/companies/Companies';
 import Movies from 'components/movies/Movies';

@@ -15,25 +15,25 @@ const styles = () => ({
 });
 export class Actors extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       actors: [],
       isOpen: false,
-    }
+    };
     this.openCloseModal = this.openCloseModal.bind(this);
   }
   componentDidMount() {
     fetch(`${HOST_API_URL}/actor`)
       .then(res => res.json())
       .then(({ data }) => {
-        this.setState({ actors: data })
+        this.setState({ actors: data });
       })
-      .catch(console.log)
+      .catch(console.log);
   }
-  createCard = actor => {
+  createCard(actor) {
     return (
       <ActorCard key={actor.id} entry={actor}/>
-    )
+    );
   }
   openCloseModal() {
     this.setState((state) => ({
@@ -42,18 +42,18 @@ export class Actors extends Component {
   }
   render() {
     const { classes } = this.props;
-    const actors = this.state.actors || []
-    const cards = actors.map(this.createCard)
+    const actors = this.state.actors || [];
+    const cards = actors.map(this.createCard);
 
     return (
       <React.Fragment>
         <Grid
           container
           spacing={2}>
-            <Grid item xs={12} className={classes.actions}>
-              <Button variant="contained" size="small" onClick={this.openCloseModal}
-                endIcon={<Icon>plus_one</Icon>}>Create</Button>
-            </Grid>
+          <Grid item xs={12} className={classes.actions}>
+            <Button variant="contained" size="small" onClick={this.openCloseModal}
+              endIcon={<Icon>plus_one</Icon>}>Create</Button>
+          </Grid>
           {cards}
         </Grid>
         {this.state.isOpen &&

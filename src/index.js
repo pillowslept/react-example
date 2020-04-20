@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 const SNACK_OPTIONS = {
   vertical: 'bottom',
   horizontal: 'right',
-}
+};
 
 ReactDOM.render(
   <SnackbarProvider maxSnack={2} duration={3000} anchorOrigin={SNACK_OPTIONS}>

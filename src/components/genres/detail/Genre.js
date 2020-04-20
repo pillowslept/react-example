@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { GENRES } from 'mocks/MovieData';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import './Genre.scss';
 
@@ -25,15 +25,15 @@ const styles = theme => ({
 
 export class Genre extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       genre: null,
-    }
+    };
   }
   componentDidMount () {
-    const { genreId } = this.props.match.params
+    const { genreId } = this.props.match.params;
     const genre = GENRES.find(({ id }) => id === Number(genreId));
-    this.setState(() => ({ genre }))
+    this.setState(() => ({ genre }));
   }
   render() {
     const { classes } = this.props;
@@ -66,10 +66,9 @@ export class Genre extends Component {
   }
 }
 
-// export default Genre;
-
 Genre.propTypes = {
   classes: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Genre);

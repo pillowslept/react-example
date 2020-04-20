@@ -11,7 +11,7 @@ const CENTURY_FOX = { id: 2, name: '20th Century Fox', created_at: '01/11/2012' 
 
 export const COMPANIES = [MARVEL_STUDIOS, CENTURY_FOX];
 
-export const MOVIES = 
+export const MOVIES =
 [
   {
     id: 1,

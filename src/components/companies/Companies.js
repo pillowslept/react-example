@@ -24,19 +24,19 @@ const styles = () => ({
 
 export class Companies extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       companies: [],
-    }
+    };
     this.openCloseModal = this.openCloseModal.bind(this);
   }
   componentDidMount() {
     fetch(`${HOST_API_URL}/company`)
       .then(res => res.json())
       .then(({ data }) => {
-        this.setState({ companies: data })
+        this.setState({ companies: data });
       })
-      .catch(console.log)
+      .catch(console.log);
   }
   openCloseModal() {
     this.setState((state) => ({
@@ -45,7 +45,7 @@ export class Companies extends Component {
   }
   render() {
     const { classes } = this.props;
-    const companies = this.state.companies || []
+    const companies = this.state.companies || [];
 
     return (
       <React.Fragment>

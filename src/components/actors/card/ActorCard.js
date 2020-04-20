@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -37,7 +37,7 @@ const styles = theme => ({
 export class ActorCard extends Component {
   render() {
     const { classes } = this.props;
-    const actor = this.props.entry || {}
+    const actor = this.props.entry || {};
 
     return (
       <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -68,6 +68,7 @@ export class ActorCard extends Component {
 
 ActorCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  entry: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(ActorCard);

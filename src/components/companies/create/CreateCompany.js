@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { HOST_API_URL } from 'constants/Environment';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -11,13 +12,13 @@ import { withSnackbar } from 'notistack';
 
 export class CreateCompany extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       company: {
         name: '',
         since: '',
       },
-    }
+    };
     this.process = this.process.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -29,15 +30,15 @@ export class CreateCompany extends Component {
       },
       body: JSON.stringify(this.state.company),
     })
-    .then(() => {
-      this.props.enqueueSnackbar('Successfully', { variant: 'success' })
-      this.props.openCloseModal();
-    })
-    .catch(() => {
-      this.props.enqueueSnackbar('There was an error executing the action', { variant: 'error' })
-    })
+      .then(() => {
+        this.props.enqueueSnackbar('Successfully', { variant: 'success' });
+        this.props.openCloseModal();
+      })
+      .catch(() => {
+        this.props.enqueueSnackbar('There was an error executing the action', { variant: 'error' });
+      });
   }
-  handleChange = (event, field) =>{ 
+  handleChange(event, field) {
     this.setState({ company: { ...this.state.company, [field]: event.target.value } });
   }
   render() {
@@ -87,5 +88,11 @@ export class CreateCompany extends Component {
     );
   }
 }
+
+CreateCompany.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  openCloseModal: PropTypes.func.isRequired,
+  enqueueSnackbar: PropTypes.func.isRequired,
+};
 
 export default withSnackbar(CreateCompany);

@@ -16,35 +16,35 @@ const styles = () => ({
 
 export class Genres extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       genres: [],
       isOpen: false,
-    }
+    };
     this.openCloseModal = this.openCloseModal.bind(this);
   }
   componentDidMount() {
     fetch(`${HOST_API_URL}/genre`)
       .then(res => res.json())
       .then(({ data }) => {
-        this.setState({ genres: data })
+        this.setState({ genres: data });
       })
-      .catch(console.log)
+      .catch(console.log);
   }
   openCloseModal() {
     this.setState((state) => ({
       isOpen: !state.isOpen,
     }));
   }
-  createCard = genre => {
+  createCard(genre) {
     return (
       <GenreCard key={genre.id} entry={genre}/>
-    )
+    );
   }
   render() {
     const { classes } = this.props;
-    const genres = this.state.genres || []
-    const cards = genres.map(this.createCard)
+    const genres = this.state.genres || [];
+    const cards = genres.map(this.createCard);
 
     return (
       <React.Fragment>
