@@ -1,46 +1,46 @@
 {
-	"parser": "babel-eslint",
-	"plugins": [
-		"react"
-	],
-	"extends": [
-		"eslint:recommended",
-		"plugin:react/recommended"
-	],
-	"env": {
-		"browser": true
-	},
-	"parserOptions": {
-		"ecmaVersion": 6,
-		"sourceType": "module",
-		"ecmaFeatures": {
-			"jsx": true,
-			"modules": true,
-			"experimentalObjectRestSpread": true
-		}
-	},
-	"settings": {
-		"react": {
-			"version": "detect"
-		}
-	},
-	"rules": {
-		"comma-dangle": 0,
-		"react/jsx-uses-vars": 1,
-		"react/display-name": 1,
-		"no-unused-vars": "warn",
-		"no-console": 1,
-		"semi": [2, "always"],
-		"quotes": ["error", "single"],
-		"eqeqeq": "error",
-		"no-trailing-spaces": "warn",
-		"no-multi-spaces": "error",
-		"indent": ["warn", 2, { "SwitchCase": 1 }],
-		"array-bracket-spacing": ["error", "never"],
-		"object-curly-spacing": ["error", "always"],
-		"key-spacing": ["error", { "afterColon": true }],
-		"keyword-spacing": ["error", { "before": true, "after": true }],
-		"max-len": ["warn", { "code": 120 }],
-		"no-unexpected-multiline": "warn"
-	}
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "comma-dangle": 0,
+    "react/jsx-uses-vars": 1,
+    "react/display-name": 1,
+    "no-unused-vars": "warn",
+    "no-console": 1,
+    "semi": [2, "always"],
+    "quotes": ["error", "single"],
+    "eqeqeq": "error",
+    "no-trailing-spaces": "warn",
+    "no-multi-spaces": "error",
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
+    "array-bracket-spacing": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "key-spacing": ["error", { "afterColon": true }],
+    "keyword-spacing": ["error", { "before": true, "after": true }],
+    "max-len": ["warn", { "code": 120 }],
+    "no-unexpected-multiline": "warn"
+  }
 }
