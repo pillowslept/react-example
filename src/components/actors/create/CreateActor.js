@@ -99,7 +99,6 @@ export class CreateActor extends Component {
 CreateActor.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   openCloseModal: PropTypes.func.isRequired,
-  enqueueSnackbar: PropTypes.func.isRequired,
 };
 
 export default CreateActor;
